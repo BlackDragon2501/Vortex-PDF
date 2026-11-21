@@ -4,19 +4,17 @@
 
 import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Loader2, UploadCloud } from 'lucide-react'
+import { Loader2, UploadCloud } from 'lucide-react'
 
 export function PanelShell({
   title,
   description,
   icon,
-  onBack,
   children,
 }: {
   title: string
   description: string
   icon: React.ReactNode
-  onBack: () => void
   children: React.ReactNode
 }) {
   return (
@@ -27,10 +25,6 @@ export function PanelShell({
           <h2 className="text-sm font-semibold">{title}</h2>
           <p className="text-xs text-muted-foreground mt-0.5">{description}</p>
         </div>
-        <Button variant="ghost" size="sm" className="h-7 text-xs gap-1 shrink-0" onClick={onBack}>
-          <ArrowLeft className="w-3.5 h-3.5" aria-hidden />
-          Herramientas
-        </Button>
       </div>
       <div className="space-y-4">{children}</div>
     </section>

@@ -9,7 +9,7 @@ import { ChevronDown, ChevronUp, FileText, Merge, X } from 'lucide-react'
 import { BusyButton, FileDrop, PanelShell } from './Shared'
 import { downloadBytes, formatSize, mergePdfs } from '@/lib/pdf/ops'
 
-export function MergePanel({ onBack }: { onBack: () => void }) {
+export function MergePanel() {
   const [files, setFiles] = useState<File[]>([])
   const [busy, setBusy] = useState(false)
 
@@ -43,7 +43,6 @@ export function MergePanel({ onBack }: { onBack: () => void }) {
       title="Unir PDF"
       description="Combina varios PDF en un solo documento, en el orden que elijas. Todo se procesa en tu navegador."
       icon={<Merge className="w-5 h-5" aria-hidden />}
-      onBack={onBack}
     >
       <FileDrop
         accept="application/pdf,.pdf"

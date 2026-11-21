@@ -21,7 +21,7 @@ import {
   type NamedBytes,
 } from '@/lib/pdf/ops'
 
-export function SplitPanel({ onBack }: { onBack: () => void }) {
+export function SplitPanel() {
   const [file, setFile] = useState<File | null>(null)
   const [bytes, setBytes] = useState<Uint8Array | null>(null)
   const [pageCount, setPageCount] = useState(0)
@@ -89,7 +89,6 @@ export function SplitPanel({ onBack }: { onBack: () => void }) {
       title="Dividir PDF"
       description="Extrae un rango de paginas en un PDF nuevo o separa el documento pagina a pagina."
       icon={<Split className="w-5 h-5" aria-hidden />}
-      onBack={onBack}
     >
       <FileDrop
         accept="application/pdf,.pdf"

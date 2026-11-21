@@ -35,7 +35,7 @@ interface CompressResult {
   nuevo: number
 }
 
-export function CompressPanel({ onBack }: { onBack: () => void }) {
+export function CompressPanel() {
   const [mode, setMode] = useState<CompressMode>('lossless')
   const [stripMetadata, setStripMetadata] = useState(true)
   const [quality, setQuality] = useState<'0.85' | '0.7' | '0.5'>('0.7')
@@ -110,7 +110,6 @@ export function CompressPanel({ onBack }: { onBack: () => void }) {
       title="Comprimir PDF"
       description="Reduce el peso de tus PDF sin perder calidad. Todo se procesa en tu navegador."
       icon={<FileArchive className="w-5 h-5" aria-hidden />}
-      onBack={onBack}
     >
       <FileDrop
         accept="application/pdf,.pdf"

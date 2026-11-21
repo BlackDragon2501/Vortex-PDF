@@ -28,7 +28,7 @@ import {
 
 type ConvertMode = 'pdf-to-images' | 'pdf-to-text' | 'images-to-pdf'
 
-export function ConvertPanel({ onBack }: { onBack: () => void }) {
+export function ConvertPanel() {
   const [mode, setMode] = useState<ConvertMode>('pdf-to-images')
   const [pdfFile, setPdfFile] = useState<File | null>(null)
   const [pdfBytes, setPdfBytes] = useState<Uint8Array | null>(null)
@@ -107,7 +107,6 @@ export function ConvertPanel({ onBack }: { onBack: () => void }) {
       title="Convertir"
       description="Convierte entre formatos sin subir tu documento a ningun servidor."
       icon={<Repeat className="w-5 h-5" aria-hidden />}
-      onBack={onBack}
     >
       <RadioGroup value={mode} onValueChange={(v) => setMode(v as ConvertMode)} className="flex flex-col gap-2">
         <div className="flex items-start gap-2 rounded-md border border-border/70 bg-[#141414] px-3 py-2.5">

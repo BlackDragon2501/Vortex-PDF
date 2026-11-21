@@ -13,7 +13,7 @@ import { Eye, EyeOff, FileText, LockKeyhole, ShieldAlert } from 'lucide-react'
 import { BusyButton, FileDrop, PanelShell } from './Shared'
 import { downloadBytes, formatSize, getPageCount, protectPdf, readFileBytes } from '@/lib/pdf/ops'
 
-export function ProtectPanel({ onBack }: { onBack: () => void }) {
+export function ProtectPanel() {
   const [file, setFile] = useState<File | null>(null)
   const [bytes, setBytes] = useState<Uint8Array | null>(null)
   const [pages, setPages] = useState(0)
@@ -111,7 +111,6 @@ export function ProtectPanel({ onBack }: { onBack: () => void }) {
       title="Proteger PDF"
       description="Cifra tu documento con contraseña y controla sus permisos. Todo local en tu navegador."
       icon={<LockKeyhole className="w-5 h-5" aria-hidden />}
-      onBack={onBack}
     >
       <FileDrop
         accept="application/pdf,.pdf"

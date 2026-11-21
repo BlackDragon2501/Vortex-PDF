@@ -25,7 +25,7 @@ import {
 const PAD_W = 480
 const PAD_H = 180
 
-export function SignPanel({ onBack }: { onBack: () => void }) {
+export function SignPanel() {
   const [file, setFile] = useState<File | null>(null)
   const [bytes, setBytes] = useState<Uint8Array | null>(null)
   const [pageCount, setPageCount] = useState(0)
@@ -205,7 +205,6 @@ export function SignPanel({ onBack }: { onBack: () => void }) {
       title="Firmar PDF"
       description="Dibuja tu firma, colocala en la pagina que elijas y descarga el documento firmado. Nada sale de tu dispositivo."
       icon={<PenTool className="w-5 h-5" aria-hidden />}
-      onBack={onBack}
     >
       <FileDrop accept="application/pdf,.pdf" label="Arrastra o pulsa para elegir un PDF" onFiles={(fs) => void pickPdf(fs)} />
 

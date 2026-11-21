@@ -7,7 +7,7 @@
 import { useState } from 'react'
 import { LegalFooter, VortexLogo } from '../editor/Branding'
 import { Button } from '@/components/ui/button'
-import { FileArchive, FileText, LockKeyhole, Merge, PenTool, Repeat, Split } from 'lucide-react'
+import { ArrowLeft, FileArchive, FileText, LockKeyhole, Merge, PenTool, Repeat, Split } from 'lucide-react'
 import { MergePanel } from './MergePanel'
 import { SplitPanel } from './SplitPanel'
 import { ConvertPanel } from './ConvertPanel'
@@ -115,12 +115,21 @@ export function PdfApp() {
           </>
         ) : (
           <>
-            {tool === 'merge' && <MergePanel onBack={backToTools} />}
-            {tool === 'split' && <SplitPanel onBack={backToTools} />}
-            {tool === 'convert' && <ConvertPanel onBack={backToTools} />}
-            {tool === 'sign' && <SignPanel onBack={backToTools} />}
-            {tool === 'compress' && <CompressPanel onBack={backToTools} />}
-            {tool === 'protect' && <ProtectPanel onBack={backToTools} />}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="self-start h-8 px-2.5 -ml-2 mb-3 text-xs gap-1.5 text-muted-foreground hover:text-foreground"
+              onClick={backToTools}
+            >
+              <ArrowLeft className="w-4 h-4" aria-hidden />
+              Volver a las herramientas
+            </Button>
+            {tool === 'merge' && <MergePanel />}
+            {tool === 'split' && <SplitPanel />}
+            {tool === 'convert' && <ConvertPanel />}
+            {tool === 'sign' && <SignPanel />}
+            {tool === 'compress' && <CompressPanel />}
+            {tool === 'protect' && <ProtectPanel />}
             <p className="text-[11px] text-muted-foreground mt-6 flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5" aria-hidden />
               Vórtex PDF procesa tus documentos localmente; no se suben copias a ningún servidor.
